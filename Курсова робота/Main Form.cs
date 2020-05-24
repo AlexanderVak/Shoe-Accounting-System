@@ -17,7 +17,7 @@ namespace Shoe_Accounting_System
         MouseEventArgs mouseEvent;
         ContextMenuStrip gridContextMenu;
         int position;
-        
+
         public Main_Form()
         {
 
@@ -68,7 +68,7 @@ namespace Shoe_Accounting_System
 
         private void SizeTxbx_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsNumber(e.KeyChar) )
+            if (Char.IsNumber(e.KeyChar))
                 return;
 
             if (Char.IsControl(e.KeyChar))
@@ -136,7 +136,7 @@ namespace Shoe_Accounting_System
 
             try
             {
-                Double.Parse(WeightTxtbx.Text.Replace('.',','));
+                Double.Parse(WeightTxtbx.Text.Replace('.', ','));
             }
             catch (Exception)
             {
@@ -175,7 +175,8 @@ namespace Shoe_Accounting_System
             if (ShoeTypeDbx.Text.Length == 0)
                 return;
 
-            if ((ShoeTypeDbx.Text == AllShoesTypes.SPORT_SHOES || ShoeTypeDbx.Text == AllShoesTypes.SLIPPERS || ShoeTypeDbx.Text == AllShoesTypes.BOOTS))
+            if ((ShoeTypeDbx.Text == AllShoesTypes.SPORT_SHOES || ShoeTypeDbx.Text == AllShoesTypes.SLIPPERS
+                || ShoeTypeDbx.Text == AllShoesTypes.BOOTS))
             {
                 EnableUIElementsIfNeeded(ref GenderDbx);
             }
@@ -195,7 +196,6 @@ namespace Shoe_Accounting_System
 
         private void AddShoesButton_Click(object sender, EventArgs e)
         {
-
             string shoeType = ShoeTypeDbx.Text;
             int size = Convert.ToInt32(SizeTxbx.Text);
             double weight = Convert.ToDouble(WeightTxtbx.Text.Replace('.', ','));
@@ -203,8 +203,6 @@ namespace Shoe_Accounting_System
             string material = MaterialDbx.Text;
             string gender = GenderDbx.Text;
             string soleType = SoleTypeDbx.Text;
-
-
 
             switch (shoeType)
             {
@@ -228,7 +226,7 @@ namespace Shoe_Accounting_System
             ResetUIElements();
         }
 
-        
+
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             mouseEvent = e;
@@ -255,7 +253,8 @@ namespace Shoe_Accounting_System
             {
                 case "Delete shoes":
                     {
-                        DialogResult dialogRes = MessageBox.Show("Do you want to delete this shoes?", "Delete shoes", MessageBoxButtons.YesNo);
+                        DialogResult dialogRes = MessageBox.Show
+                            ("Do you want to delete this shoes?", "Delete shoes", MessageBoxButtons.YesNo);
 
                         if (dialogRes == DialogResult.Yes)
                         {
